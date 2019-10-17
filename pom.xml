@@ -9,7 +9,7 @@
 	</parent>
 	<groupId>gawari._himanshu</groupId>
 	<artifactId>Pet-Clinic</artifactId>
-	<version>0.1</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>Pet-Clinic</name>
 	<description>Spring Boot Pet clinic web application</description>
 
@@ -46,7 +46,7 @@
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:himanshugawari/Pet-Clinic.git</developerConnection>
-		<tag>0.1</tag>
+		<tag>Pet-Clinic-0.0.3-SNAPSHOT</tag>
 	</scm>
 
 </project>
