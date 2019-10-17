@@ -36,6 +36,9 @@
 				<artifactId>maven-release-plugin</artifactId>
 				<configuration>
 					<goals>install</goals>
+					<checkModificationExcludes>
+						<checkModificationExclude>pom.xml</checkModificationExclude>
+					</checkModificationExcludes>
 				</configuration>
 			</plugin>
 		</plugins>
@@ -43,7 +46,7 @@
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:himanshugawari/Pet-Clinic.git</developerConnection>
-		<tag>HEAD</tag>
+		<tag>Pet-Clinic-0.0.3-SNAPSHOT</tag>
 	</scm>
 
 </project>
