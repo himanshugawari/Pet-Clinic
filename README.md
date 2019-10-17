@@ -12,3 +12,12 @@ cd Pet-Clinic
 ./mvnw package
 
 java -jar target/*.jar
+
+
+Contained in this repo is an opinionated version of the classic reference application -
+
+https://github.com/spring-projects/spring-petclinic
+
+# License
+
+The Pet-Clinic sample application is released under version 2.0 of the Apache License.
