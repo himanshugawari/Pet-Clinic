@@ -5,15 +5,15 @@
 	<parent>
 		<groupId>gawari._himanshu</groupId>
 		<artifactId>Pet-Clinic</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
-	<artifactId>Pet-Clini-Web</artifactId>
+	<artifactId>Pet-Clinic-Web</artifactId>
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
 			<groupId>gawari._himanshu</groupId>
 			<artifactId>Pet-Clinic-Data</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
