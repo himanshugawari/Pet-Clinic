@@ -1,6 +1,6 @@
 package gawari._himanshu.PetClinic.model;
 
-public class Person  {
+public class Person extends BaseEntity {
 	private String firstName;
 	private String lastName;
 

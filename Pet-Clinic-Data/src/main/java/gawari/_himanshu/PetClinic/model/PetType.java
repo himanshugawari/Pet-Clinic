@@ -1,5 +1,5 @@
 package gawari._himanshu.PetClinic.model;
 
-public class PetType {
+public class PetType extends BaseEntity {
 
 }
