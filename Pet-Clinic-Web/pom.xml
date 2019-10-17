@@ -3,7 +3,7 @@
 	<parent>
 		<groupId>gawari._himanshu</groupId>
 		<artifactId>Pet-Clinic</artifactId>
-		<version>0.0.2</version>
+		<version>0.0.3-SNAPSHOT</version>
 	</parent>
 	<artifactId>Pet-Clinic-Web</artifactId>
 	<packaging>jar</packaging>
@@ -11,7 +11,7 @@
 		<dependency>
 			<groupId>gawari._himanshu</groupId>
 			<artifactId>Pet-Clinic-Data</artifactId>
-			<version>0.0.2</version>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
