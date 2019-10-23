@@ -2,9 +2,12 @@ package gawari._himanshu.PetClinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import gawari._himanshu.PetClinic.model.Owner;
 import gawari._himanshu.PetClinic.services.OwnerService;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	@Override

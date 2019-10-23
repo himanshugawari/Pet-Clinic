@@ -2,9 +2,11 @@ package gawari._himanshu.PetClinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.stereotype.Service;
+
 import gawari._himanshu.PetClinic.model.Vet;
 import gawari._himanshu.PetClinic.services.VetService;
-
+@Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
 	@Override

@@ -7,8 +7,6 @@ import gawari._himanshu.PetClinic.model.Owner;
 import gawari._himanshu.PetClinic.model.Vet;
 import gawari._himanshu.PetClinic.services.OwnerService;
 import gawari._himanshu.PetClinic.services.VetService;
-import gawari._himanshu.PetClinic.services.map.OwnerServiceMap;
-import gawari._himanshu.PetClinic.services.map.VetServiceMap;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -16,9 +14,16 @@ public class DataLoader implements CommandLineRunner {
 	private final OwnerService ownerService;
 	private final VetService vetService;
 
-	public DataLoader() {
-		this.ownerService = new OwnerServiceMap();
-		this.vetService = new VetServiceMap();
+	// Hardcoded
+	/*
+	 * public DataLoader() { this.ownerService = new OwnerServiceMap();
+	 * this.vetService = new VetServiceMap(); }
+	 */
+
+	public DataLoader(OwnerService ownerService, VetService vetService) {
+		super();
+		this.ownerService = ownerService;
+		this.vetService = vetService;
 	}
 
 	@Override
