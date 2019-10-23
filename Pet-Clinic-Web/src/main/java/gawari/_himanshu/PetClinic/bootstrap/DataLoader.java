@@ -32,6 +32,7 @@ public class DataLoader implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		Owner owner1 = new Owner();
 		// owner1.setId(1L);
+		// Abstract Id Generation from Map Impl
 		owner1.setFirstName("Himanshu");
 		owner1.setLastName("Gawari");
 
