@@ -1,5 +1,6 @@
 package gawari._himanshu.PetClinic.bootstrap;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -20,6 +21,7 @@ public class DataLoader implements CommandLineRunner {
 	 * this.vetService = new VetServiceMap(); }
 	 */
 
+	@Autowired
 	public DataLoader(OwnerService ownerService, VetService vetService) {
 		super();
 		this.ownerService = ownerService;
