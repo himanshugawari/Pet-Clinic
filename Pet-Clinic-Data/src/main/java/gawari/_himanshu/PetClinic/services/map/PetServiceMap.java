@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import gawari._himanshu.PetClinic.model.Pet;
 import gawari._himanshu.PetClinic.services.PetService;
+
 @Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
@@ -24,7 +25,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 	@Override
 	public Pet save(Pet object) {
 		// TODO Auto-generated method stub
-		return super.save(object.getId(), object);
+		return super.save(object);
 	}
 
 	@Override
