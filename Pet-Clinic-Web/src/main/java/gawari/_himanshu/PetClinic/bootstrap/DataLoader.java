@@ -1,10 +1,13 @@
 package gawari._himanshu.PetClinic.bootstrap;
 
+import java.time.LocalDate;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import gawari._himanshu.PetClinic.model.Owner;
+import gawari._himanshu.PetClinic.model.Pet;
 import gawari._himanshu.PetClinic.model.PetType;
 import gawari._himanshu.PetClinic.model.Vet;
 import gawari._himanshu.PetClinic.services.OwnerService;
@@ -52,6 +55,16 @@ public class DataLoader implements CommandLineRunner {
 		// Abstract Id Generation from Map Impl
 		owner1.setFirstName("Himanshu");
 		owner1.setLastName("Gawari");
+		owner1.setAddress("Lower Parel");
+		owner1.setCity("Mumbai");
+		owner1.setTelephone("9082321535");
+		
+		Pet himanshusPet=new Pet();
+		himanshusPet.setPetType(savedDogType);
+		himanshusPet.setOwner(owner1);
+		himanshusPet.setBirthDate(LocalDate.now());
+		himanshusPet.setName("moti");
+		owner1.getPets().add(himanshusPet);
 
 		ownerService.save(owner1);
 
@@ -59,6 +72,17 @@ public class DataLoader implements CommandLineRunner {
 		// owner2.setId(2L);
 		owner2.setFirstName("Atsuko");
 		owner2.setLastName("Maeda");
+		owner2.setAddress("Akihabara");
+		owner2.setCity("Tokyo");
+		owner2.setTelephone("9868545495");
+		
+		
+		Pet atsukosPet=new Pet();
+		atsukosPet.setPetType(savedCatType);
+		atsukosPet.setOwner(owner2);
+		atsukosPet.setBirthDate(LocalDate.now());
+		atsukosPet.setName("inu");
+		owner2.getPets().add(atsukosPet);
 
 		ownerService.save(owner2);
 
