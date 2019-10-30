@@ -5,8 +5,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import gawari._himanshu.PetClinic.model.Owner;
+import gawari._himanshu.PetClinic.model.PetType;
 import gawari._himanshu.PetClinic.model.Vet;
 import gawari._himanshu.PetClinic.services.OwnerService;
+import gawari._himanshu.PetClinic.services.PetTypeService;
 import gawari._himanshu.PetClinic.services.VetService;
 
 @Component
@@ -14,6 +16,7 @@ public class DataLoader implements CommandLineRunner {
 
 	private final OwnerService ownerService;
 	private final VetService vetService;
+	private final PetTypeService petTypeService;
 
 	// Hardcoded
 	/*
@@ -22,14 +25,28 @@ public class DataLoader implements CommandLineRunner {
 	 */
 
 	@Autowired
-	public DataLoader(OwnerService ownerService, VetService vetService) {
+	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
 		super();
 		this.ownerService = ownerService;
 		this.vetService = vetService;
+		this.petTypeService = petTypeService;
 	}
 
 	@Override
 	public void run(String... args) throws Exception {
+
+		PetType dog = new PetType();
+		dog.setName("Dog");
+
+		PetType savedDogType = petTypeService.save(dog);
+		System.out.println("Loaded Dog.......");
+
+		PetType cat = new PetType();
+		cat.setName("Cat");
+
+		PetType savedCatType = petTypeService.save(cat);
+		System.out.println("Loaded Cat.......");
+
 		Owner owner1 = new Owner();
 		// owner1.setId(1L);
 		// Abstract Id Generation from Map Impl
