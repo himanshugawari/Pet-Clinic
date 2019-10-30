@@ -2,10 +2,20 @@ package gawari._himanshu.PetClinic.model;
 
 import java.time.LocalDate;
 
-public class Pet extends BaseEntity{
+public class Pet extends BaseEntity {
+	private String name;
+
 	private PetType petType;
 	private Owner owner;
-	private LocalDate birtDate;
+	private LocalDate birthDate;
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 
 	public PetType getPetType() {
 		return petType;
@@ -23,12 +33,12 @@ public class Pet extends BaseEntity{
 		this.owner = owner;
 	}
 
-	public LocalDate getBirtDate() {
-		return birtDate;
+	public LocalDate getBirthDate() {
+		return birthDate;
 	}
 
-	public void setBirtDate(LocalDate birtDate) {
-		this.birtDate = birtDate;
+	public void setBirthDate(LocalDate birthDate) {
+		this.birthDate = birthDate;
 	}
 
 }

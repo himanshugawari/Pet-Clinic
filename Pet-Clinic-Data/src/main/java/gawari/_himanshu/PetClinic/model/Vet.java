@@ -1,5 +1,18 @@
 package gawari._himanshu.PetClinic.model;
 
-public class Vet extends Person {
+import java.util.HashSet;
+import java.util.Set;
 
+public class Vet extends Person {
+	private Set<Speciality> specialities;
+
+	public Set<Speciality> getSpecialities() {
+		if (null == specialities || specialities.isEmpty())
+			return new HashSet<>();
+		return specialities;
+	}
+
+	public void setSpecialities(Set<Speciality> specialities) {
+		this.specialities = specialities;
+	}
 }
