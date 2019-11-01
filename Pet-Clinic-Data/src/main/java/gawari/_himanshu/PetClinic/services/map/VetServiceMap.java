@@ -2,13 +2,24 @@ package gawari._himanshu.PetClinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import gawari._himanshu.PetClinic.model.Speciality;
 import gawari._himanshu.PetClinic.model.Vet;
+import gawari._himanshu.PetClinic.services.SpecialitiesService;
 import gawari._himanshu.PetClinic.services.VetService;
 
 @Service
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
+
+	private final SpecialitiesService specialitiesService;
+
+	@Autowired
+	public VetServiceMap(SpecialitiesService specialitiesService) {
+		super();
+		this.specialitiesService = specialitiesService;
+	}
 
 	@Override
 	public Set<Vet> findAll() {
@@ -24,7 +35,14 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
 	@Override
 	public Vet save(Vet object) {
-		// TODO Auto-generated method stub
+		if (object.getSpecialities().size() > 0) {
+			object.getSpecialities().forEach(speciality -> {
+				if (speciality.getId() == null) {
+					Speciality savedSpeciality = specialitiesService.save(speciality);
+					speciality.setId(savedSpeciality.getId());
+				}
+			});
+		}
 		return super.save(object);
 	}
 
