@@ -1,7 +1,7 @@
 package gawari._himanshu.PetClinic.model;
 
 import java.io.Serializable;
-//Map based Implementaion
+
 public class BaseEntity implements Serializable {
 	private Long id;
 
