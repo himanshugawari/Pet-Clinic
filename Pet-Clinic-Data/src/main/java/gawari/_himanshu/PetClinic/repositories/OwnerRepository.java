@@ -6,4 +6,5 @@ import gawari._himanshu.PetClinic.model.Owner;
 
 public interface OwnerRepository extends CrudRepository<Owner, Long> {
 
+	Owner findByLastName(String lastName);
 }

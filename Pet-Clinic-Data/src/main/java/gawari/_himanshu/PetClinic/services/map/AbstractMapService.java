@@ -9,7 +9,8 @@ import java.util.Set;
 
 import gawari._himanshu.PetClinic.model.BaseEntity;
 
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+//public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractMapService<T extends BaseEntity, ID> {
 
 	protected Map<Long, T> map = new HashMap<>();
 
