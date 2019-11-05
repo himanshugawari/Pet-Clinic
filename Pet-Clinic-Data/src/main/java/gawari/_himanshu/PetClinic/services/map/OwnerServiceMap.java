@@ -3,6 +3,7 @@ package gawari._himanshu.PetClinic.services.map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import gawari._himanshu.PetClinic.model.Owner;
@@ -12,6 +13,7 @@ import gawari._himanshu.PetClinic.services.PetService;
 import gawari._himanshu.PetClinic.services.PetTypeService;
 
 @Service
+@Profile({"default", "map"})
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	private final PetTypeService petTypeService;

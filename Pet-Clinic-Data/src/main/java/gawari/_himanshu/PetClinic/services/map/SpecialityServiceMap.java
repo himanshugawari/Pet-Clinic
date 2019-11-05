@@ -2,12 +2,14 @@ package gawari._himanshu.PetClinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import gawari._himanshu.PetClinic.model.Speciality;
 import gawari._himanshu.PetClinic.services.SpecialitiesService;
 
 @Service
+@Profile({"default", "map"})
 public class SpecialityServiceMap extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
 
 	@Override

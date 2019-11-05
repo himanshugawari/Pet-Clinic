@@ -2,6 +2,7 @@ package gawari._himanshu.PetClinic.model;
 
 import java.time.LocalDate;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -12,13 +13,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "visits")
 public class Visit extends BaseEntity {
+
 	@Column(name = "date")
 	private LocalDate date;
 
 	@Column(name = "description")
 	private String description;
 
-	@ManyToOne
+	@ManyToOne(cascade = CascadeType.ALL) // added cascade to remove bug #62 of flusing unsaved data
 	@JoinColumn(name = "pet_id")
 	private Pet pet;
 

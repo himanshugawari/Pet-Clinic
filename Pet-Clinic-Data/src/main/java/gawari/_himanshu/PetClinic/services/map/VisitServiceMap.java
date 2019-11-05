@@ -2,12 +2,14 @@ package gawari._himanshu.PetClinic.services.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import gawari._himanshu.PetClinic.model.Visit;
 import gawari._himanshu.PetClinic.services.VisitService;
 
 @Service
+@Profile({"default", "map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
 	@Override
@@ -21,11 +23,27 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
 	}
 
 	@Override
-	public Visit save(Visit object) {
-		if (object.getPet() == null || object.getPet().getOwner() == null || object.getPet().getId() == null) {
-			throw new RuntimeException("Invalid Visit");
+	public Visit save(Visit visit) {
+		/*
+		 * if (visit.getPet() == null || visit.getPet().getOwner() == null ||
+		 * visit.getPet().getId() == null || visit.getPet().getOwner().getId() == null)
+		 * { throw new RuntimeException("Invalid Visit"); }
+		 */
+
+		if (visit.getPet() == null) {
+			throw new RuntimeException("Invalid Visit  visit.getPet()");
+		} else if (visit.getPet().getOwner() == null) {
+			throw new RuntimeException("Invalid Visit  visit.getPet().getOwner()");
 		}
-		return super.save(object);
+		//Check Causing Exception and breaking code
+		
+			  else if (visit.getPet().getId() == null) { throw new
+			  RuntimeException("Invalid Visit  visit.getPet().getId()"); }
+			 else if (visit.getPet().getOwner().getId() == null) {
+			throw new RuntimeException("Invalid Visit  visit.getPet().getOwner().getId()");
+		}
+
+		return super.save(visit);
 	}
 
 	@Override

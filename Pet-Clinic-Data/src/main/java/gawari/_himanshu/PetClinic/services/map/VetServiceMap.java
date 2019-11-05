@@ -3,6 +3,7 @@ package gawari._himanshu.PetClinic.services.map;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import gawari._himanshu.PetClinic.model.Speciality;
@@ -11,6 +12,7 @@ import gawari._himanshu.PetClinic.services.SpecialitiesService;
 import gawari._himanshu.PetClinic.services.VetService;
 
 @Service
+@Profile({"default", "map"})
 public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetService {
 
 	private final SpecialitiesService specialitiesService;

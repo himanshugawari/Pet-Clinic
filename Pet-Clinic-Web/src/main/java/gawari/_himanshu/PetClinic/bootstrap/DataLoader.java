@@ -3,7 +3,8 @@ package gawari._himanshu.PetClinic.bootstrap;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.ApplicationListener;
+import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import gawari._himanshu.PetClinic.model.Owner;
@@ -11,38 +12,51 @@ import gawari._himanshu.PetClinic.model.Pet;
 import gawari._himanshu.PetClinic.model.PetType;
 import gawari._himanshu.PetClinic.model.Speciality;
 import gawari._himanshu.PetClinic.model.Vet;
+import gawari._himanshu.PetClinic.model.Visit;
 import gawari._himanshu.PetClinic.services.OwnerService;
-import gawari._himanshu.PetClinic.services.PetService;
 import gawari._himanshu.PetClinic.services.PetTypeService;
 import gawari._himanshu.PetClinic.services.SpecialitiesService;
 import gawari._himanshu.PetClinic.services.VetService;
+import gawari._himanshu.PetClinic.services.VisitService;
 
 @Component
-public class DataLoader implements CommandLineRunner {
+@SuppressWarnings("unused")
+public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
+	// public class DataLoader implements CommandLineRunner {
 
 	private final OwnerService ownerService;
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialitiesService specialitiesService;
+	private final VisitService visitService;
 
 	// Hardcoded
 	/*
 	 * public DataLoader() { this.ownerService = new OwnerServiceMap();
 	 * this.vetService = new VetServiceMap(); }
 	 */
-
 	@Autowired
 	public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
-			SpecialitiesService specialitiesService) {
+			SpecialitiesService specialitiesService, VisitService visitService) {
 		super();
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialitiesService = specialitiesService;
+		this.visitService = visitService;
 	}
 
+	/*
+	 * @Override public void run(String... args) throws Exception { int count =
+	 * petTypeService.findAll().size(); if (count == 0) loadData();
+	 * 
+	 * }
+	 */
+
 	@Override
-	public void run(String... args) throws Exception {
+	// @Transactional
+	public void onApplicationEvent(ContextRefreshedEvent event) {
+		// TODO Auto-generated method stub
 		int count = petTypeService.findAll().size();
 		if (count == 0)
 			loadData();
@@ -80,7 +94,7 @@ public class DataLoader implements CommandLineRunner {
 		System.out.println("Loaded Speciality.......");
 
 		Owner owner1 = new Owner();
-		// owner1.setId(1L);
+		//owner1.setId(1L);
 		// Abstract Id Generation from Map Impl
 		owner1.setFirstName("Himanshu");
 		owner1.setLastName("Gawari");
@@ -89,6 +103,8 @@ public class DataLoader implements CommandLineRunner {
 		owner1.setTelephone("9082321535");
 
 		Pet himanshusPet = new Pet();
+		//add pet id using map implementaions
+		//himanshusPet.setId(1L);
 		himanshusPet.setPetType(savedDogType);
 		himanshusPet.setOwner(owner1);
 		himanshusPet.setBirthDate(LocalDate.now());
@@ -98,7 +114,7 @@ public class DataLoader implements CommandLineRunner {
 		ownerService.save(owner1);
 
 		Owner owner2 = new Owner();
-		// owner2.setId(2L);
+		//owner2.setId(2L);
 		owner2.setFirstName("Atsuko");
 		owner2.setLastName("Maeda");
 		owner2.setAddress("Akihabara");
@@ -106,6 +122,8 @@ public class DataLoader implements CommandLineRunner {
 		owner2.setTelephone("9868545495");
 
 		Pet atsukosPet = new Pet();
+		//add pet id using map implementaions
+		//atsukosPet.setId(2L);
 		atsukosPet.setPetType(savedCatType);
 		atsukosPet.setOwner(owner2);
 		atsukosPet.setBirthDate(LocalDate.now());
@@ -115,6 +133,24 @@ public class DataLoader implements CommandLineRunner {
 		ownerService.save(owner2);
 
 		System.out.println("Loaded Owners.......");
+
+		Visit dogVisit = new Visit();
+		//dogVisit.setId(1L);
+		dogVisit.setPet(himanshusPet);
+		dogVisit.setDate(LocalDate.now());
+		dogVisit.setDescription("Lazy Dog");
+
+		visitService.save(dogVisit);
+
+		Visit catVisit = new Visit();
+		//catVisit.setId(2L);
+		catVisit.setPet(atsukosPet);
+		catVisit.setDate(LocalDate.now());
+		catVisit.setDescription("Sneezy Cat");
+
+		visitService.save(catVisit);
+
+		System.out.println("Loaded Visits.......");
 
 		Vet vet1 = new Vet();
 		// vet1.setId(1L);

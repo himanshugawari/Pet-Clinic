@@ -23,15 +23,24 @@ public abstract class AbstractMapService<T extends BaseEntity, ID> {
 	}
 
 	T save(T object) {
-		if (object != null) {
-			if (object.getId() == null) {
-				object.setId(getNextId());
-			}
-			map.put(object.getId(), object);
-		} else {
-			throw new RuntimeException("Object cannot be null");
-		}
-		return object;
+		if(object != null) {
+            if(object.getId() == null){
+                object.setId(getNextId());
+            }
+
+            map.put(object.getId(), object);
+        } else {
+            throw new RuntimeException("Object cannot be null");
+        }
+
+        return object;
+		
+		
+		/*
+		 * if (object != null) { if (object.getId() == null) {
+		 * object.setId(getNextId()); } map.put(object.getId(), object); } else { throw
+		 * new RuntimeException("Object cannot be null"); } return object;
+		 */
 	}
 
 	void deleteById(ID id) {

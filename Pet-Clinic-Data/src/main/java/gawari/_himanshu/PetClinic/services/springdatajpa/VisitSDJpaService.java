@@ -19,7 +19,6 @@ public class VisitSDJpaService implements VisitService {
 
 	@Autowired
 	public VisitSDJpaService(VisitRepository visitRepository) {
-		super();
 		this.visitRepository = visitRepository;
 	}
 
