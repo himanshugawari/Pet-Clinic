@@ -94,7 +94,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		System.out.println("Loaded Speciality.......");
 
 		Owner owner1 = new Owner();
-		//owner1.setId(1L);
+		// owner1.setId(1L);
 		// Abstract Id Generation from Map Impl
 		owner1.setFirstName("Himanshu");
 		owner1.setLastName("Gawari");
@@ -103,8 +103,8 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		owner1.setTelephone("9082321535");
 
 		Pet himanshusPet = new Pet();
-		//add pet id using map implementaions
-		//himanshusPet.setId(1L);
+		// add pet id using map implementaions
+		// himanshusPet.setId(1L);
 		himanshusPet.setPetType(savedDogType);
 		himanshusPet.setOwner(owner1);
 		himanshusPet.setBirthDate(LocalDate.now());
@@ -113,8 +113,18 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 
 		ownerService.save(owner1);
 
+		Owner owner3 = Owner.builder().firstName("ab tak").lastName("chappan").address("nagpada").city("mumbai")
+				.telephone("101").build();
+
+		Pet chappansPet = Pet.builder().petType(savedDogType).owner(owner3).birthDate(LocalDate.now()).name("dangerous")
+				.build();
+
+		owner3.getPets().add(chappansPet);
+
+		ownerService.save(owner3);
+
 		Owner owner2 = new Owner();
-		//owner2.setId(2L);
+		// owner2.setId(2L);
 		owner2.setFirstName("Atsuko");
 		owner2.setLastName("Maeda");
 		owner2.setAddress("Akihabara");
@@ -122,8 +132,8 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		owner2.setTelephone("9868545495");
 
 		Pet atsukosPet = new Pet();
-		//add pet id using map implementaions
-		//atsukosPet.setId(2L);
+		// add pet id using map implementaions
+		// atsukosPet.setId(2L);
 		atsukosPet.setPetType(savedCatType);
 		atsukosPet.setOwner(owner2);
 		atsukosPet.setBirthDate(LocalDate.now());
@@ -135,7 +145,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		System.out.println("Loaded Owners.......");
 
 		Visit dogVisit = new Visit();
-		//dogVisit.setId(1L);
+		// dogVisit.setId(1L);
 		dogVisit.setPet(himanshusPet);
 		dogVisit.setDate(LocalDate.now());
 		dogVisit.setDescription("Lazy Dog");
@@ -143,12 +153,16 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		visitService.save(dogVisit);
 
 		Visit catVisit = new Visit();
-		//catVisit.setId(2L);
+		// catVisit.setId(2L);
 		catVisit.setPet(atsukosPet);
 		catVisit.setDate(LocalDate.now());
 		catVisit.setDescription("Sneezy Cat");
 
 		visitService.save(catVisit);
+
+		Visit dVisit = Visit.builder().pet(chappansPet).date(LocalDate.now()).description("mad dog").build();
+
+		visitService.save(dVisit);
 
 		System.out.println("Loaded Visits.......");
 

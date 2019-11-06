@@ -10,6 +10,17 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @SuppressWarnings("serial")
 @Entity
 @Table(name = "vets")
@@ -24,7 +35,4 @@ public class Vet extends Person {
 		return specialities;
 	}
 
-	public void setSpecialities(Set<Speciality> specialities) {
-		this.specialities = specialities;
-	}
 }
