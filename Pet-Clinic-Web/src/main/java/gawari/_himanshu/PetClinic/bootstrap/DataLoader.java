@@ -175,7 +175,7 @@ public class DataLoader implements ApplicationListener<ContextRefreshedEvent> {
 		vetService.save(vet1);
 
 		Vet vet2 = new Vet();
-		// vet2.setId(2L);
+		 vet2.setId(2L);
 		vet2.setFirstName("Mary");
 		vet2.setLastName("Elizabeth");
 		vet2.getSpecialities().add(saveSurgery);
