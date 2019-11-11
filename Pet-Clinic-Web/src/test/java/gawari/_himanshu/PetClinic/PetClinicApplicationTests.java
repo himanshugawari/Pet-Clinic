@@ -1,11 +1,10 @@
 package gawari._himanshu.PetClinic;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
-@RunWith(SpringRunner.class)
+//@RunWith(SpringRunner.class)
+//@ExtendWith(SpringExtension.class)
 @SpringBootTest
 public class PetClinicApplicationTests {
 
