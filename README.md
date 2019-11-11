@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/himanshugawari/Pet-Clinic.svg?style=svg)](https://circleci.com/gh/himanshugawari/Pet-Clinic)
 # Pet-Clinic
 Spring Pet Clinic
 
